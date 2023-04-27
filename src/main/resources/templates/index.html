@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>홈</title>
@@ -7,13 +7,15 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
   <link href="css/index.css" rel="stylesheet">
   <link href="css/navbar.css" rel="stylesheet">
+  <link href="/src/main/resources/static/css/index.css" rel="stylesheet">
+  <link href="/src/main/resources/static/css/navbar.css" rel="stylesheet">
 </head>
 <body class="no-scroll">
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-custom">
     <div class="container-fluid">
       <a class="navbar-brand" href="/index">
-        <img src="images\logo.jpg" width="250" height="50">
+        <img src="/src/main/resources/static/images/logo.jpg" width="250" height="50">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -29,14 +31,10 @@
           <li class="nav-item">
             <a class="nav-link" href="/buy">살때</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/sell">팔때</a>
-          </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="차 검색" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        <ul class="navbar-nav">
+          <li class="nav-item text-light" th:text="${greeting}"></li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -57,46 +55,37 @@
       <div class="d-flex justify-content-between">
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Car picture</text></svg>
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/src/main/resources/static/images/부가티 시론.avif" />
             <div class="card-body">
-              <p class="card-text">car name</p>
+              <p class="card-text">부가티 시론</p>
               <div class="d-flex justify-content-between align-items-center">
-                <small class="text-body-secondary">car price</small>
+                <small class="text-body-secondary">19억원</small>
               </div>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Car picture</text></svg>
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/src/main/resources/static/images/엔초페라리.jfif" />
             <div class="card-body">
-              <p class="card-text">car name</p>
+              <p class="card-text">엔초 페라리</p>
               <div class="d-flex justify-content-between align-items-center">
-                <small class="text-body-secondary">car price</small>
+                <small class="text-body-secondary">37억원</small>
               </div>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Car picture</text></svg>
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/src/main/resources/static/images/페라리 SP48 유니카.avif" />
             <div class="card-body">
-              <p class="card-text">car name</p>
+              <p class="card-text">페라리 SP48 유니카</p>
               <div class="d-flex justify-content-between align-items-center">
-                <small class="text-body-secondary">car price</small>
+                <small class="text-body-secondary">16억원</small>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="main-item search-field">
-      <p class="display-6">셀러 검색</p>
-      <div class="form-field">
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="셀러 이름을 입력해주세요." aria-label="Search">
-          <button class="btn btn-success btn-lg" type="submit" style="width: 90px;">검색</button>
-        </form>
       </div>
     </div>
   </div>
