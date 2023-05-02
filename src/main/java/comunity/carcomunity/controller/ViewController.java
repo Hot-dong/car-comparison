@@ -21,10 +21,17 @@ public class ViewController {
     public String login() {
         return "login";
     }
+
     @RequestMapping("/join")
     public String join() {
         return "join";
     }
+
+    @RequestMapping("/buy")
+    public String buy() {
+        return "buy";
+    }
+
     @GetMapping("/dashboard")
     public String showDashboard(HttpSession session, Model model) {
         String greeting = (String) session.getAttribute("greeting");
