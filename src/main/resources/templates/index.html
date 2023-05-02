@@ -7,15 +7,13 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
   <link href="css/index.css" rel="stylesheet">
   <link href="css/navbar.css" rel="stylesheet">
-  <link href="/src/main/resources/static/css/index.css" rel="stylesheet">
-  <link href="/src/main/resources/static/css/navbar.css" rel="stylesheet">
 </head>
 <body class="no-scroll">
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-custom">
     <div class="container-fluid">
       <a class="navbar-brand" href="/index">
-        <img src="/src/main/resources/static/images/logo.jpg" width="250" height="50">
+        <img src="images/logo.jpg" width="250" height="50">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -26,14 +24,18 @@
             <a class="nav-link active" aria-current="page" href="/index">홈</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/login">로그인</a>
+            <a class="nav-link" th:if="${greeting == null}" href="/login">로그인</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/buy">살때</a>
           </li>
         </ul>
         <ul class="navbar-nav">
-          <li class="nav-item text-light" th:text="${greeting}"></li>
+          <li class="nav-item text-light" th:if="${greeting != null}" th:text="${greeting}"></li>
+          <li class="nav-item text-light" th:if="${greeting != null}">
+            <a class="nav-link" th:if="${greeting != null}" href="/doLogout">로그아웃</a>
+          </li>
+          <li class="nav-item text-light" th:unless="${greeting != null}">ㅎㅇ</li>
         </ul>
       </div>
     </div>
@@ -55,7 +57,7 @@
       <div class="d-flex justify-content-between">
         <div class="col">
           <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/src/main/resources/static/images/부가티 시론.avif" />
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/부가티 시론.avif" />
             <div class="card-body">
               <p class="card-text">부가티 시론</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -66,7 +68,7 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/src/main/resources/static/images/엔초페라리.jfif" />
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/엔초페라리.jfif" />
             <div class="card-body">
               <p class="card-text">엔초 페라리</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -77,7 +79,7 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/src/main/resources/static/images/페라리 SP48 유니카.avif" />
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/페라리 SP48 유니카.avif" />
             <div class="card-body">
               <p class="card-text">페라리 SP48 유니카</p>
               <div class="d-flex justify-content-between align-items-center">

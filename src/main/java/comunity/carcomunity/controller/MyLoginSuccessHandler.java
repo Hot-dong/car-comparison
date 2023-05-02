@@ -14,8 +14,8 @@ public class MyLoginSuccessHandler implements AuthenticationSuccessHandler {
     public void onAuthenticationSuccess(HttpServletRequest request,
                                         HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
-        //실행되는거임
         HttpSession session = request.getSession();
+
         session.setAttribute("greeting", authentication.getName() + "님 반갑습니다.");
         response.sendRedirect("/index");
     }
