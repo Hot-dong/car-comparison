@@ -9,17 +9,18 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
+    private int user_idx;
 
-    private String userName;
+    private String user_name;
 
-    private String userId;
+    private String user_id;
 
-    private String userPw;
+    private String user_pw;
 
 }
 

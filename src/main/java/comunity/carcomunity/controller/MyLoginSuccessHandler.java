@@ -15,8 +15,9 @@ public class MyLoginSuccessHandler implements AuthenticationSuccessHandler {
                                         HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
         HttpSession session = request.getSession();
-
-        session.setAttribute("greeting", authentication.getName() + "님 반갑습니다.");
+        String userName = authentication.getName(); //인증된 사용자의 user_id를 가져옴
+        session.setAttribute("userName", userName + "님 반가워요."); //세션에 user_id를 저장
+        //super.onAuthenticationSuccess(request, response, authentication);
         response.sendRedirect("/index");
     }
 }
