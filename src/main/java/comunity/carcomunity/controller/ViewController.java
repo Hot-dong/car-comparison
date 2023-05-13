@@ -15,8 +15,8 @@ public class ViewController {
 
     @RequestMapping("/index")
     public String index(HttpSession session, Model model) {
-        String greeting = (String) session.getAttribute("greeting");
-        model.addAttribute("greeting", greeting);
+        String userName = (String) session.getAttribute("userName");
+        model.addAttribute("userName", userName);
 
         return "index";
     }
@@ -49,8 +49,8 @@ public class ViewController {
 
     @RequestMapping("/buy")
     public String buy(HttpSession session, Model model) {
-        String greeting = (String) session.getAttribute("greeting");
-        model.addAttribute("greeting", greeting);
+        String userName = (String) session.getAttribute("userName");
+        model.addAttribute("userName", userName);
 
         return "buy";
     }

@@ -20,32 +20,33 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private DataSource dataSource; //datasource를 주입 받음
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource)
-                .usersByUsernameQuery("SELECT user_id, user_pw, true FROM user WHERE user_id=?")//사용자 정보를 가져오는 쿼리를 사용한다는 뜻
-                .passwordEncoder(new BCryptPasswordEncoder());
-    }
-
-
-    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf()
                     .disable()
                 .authorizeRequests()
-                    .antMatchers("/login", "/", "/index", "/css/**", "/images/**", "/js/**", "/join", "/join-ok").permitAll()
+                    .antMatchers("/login", "/", "/index", "/css/**", "/images/**", "/js/**", "/join", "/join-ok", "/buy").permitAll()
                     .anyRequest()
                     .authenticated()
                 .and()
                 .formLogin()
                     .loginPage("/login")
                     .loginProcessingUrl("/doLogin")
-                    .usernameParameter("id")
-                    .passwordParameter("pw")
+                    .usernameParameter("user_id")
+                    .passwordParameter("user_pw")
                     .successHandler(new MyLoginSuccessHandler())
                 .and()
                 .logout()
                         .logoutUrl("/doLogout")
                         .logoutSuccessUrl("/login");
     }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .usersByUsernameQuery("SELECT user_id, user_pw, user_name FROM user WHERE user_id=?")//사용자 정보를 가져오는 쿼리를 사용한다는 뜻
+                .authoritiesByUsernameQuery("SELECT user_name FROM user WHERE username=?")//권한 정보를 가져오는 함수인데 지금은 권한이 없어서 재정의
+                .passwordEncoder(new BCryptPasswordEncoder());
+    }
+
 }
