@@ -15,13 +15,82 @@
         </tr>
     </thead>
     <tbody>
-        <tr th:each="user : ${list}">
-            <td th:text="list.carIdx"></td>
-            <td th:text="list.carName"></td>
-            <td th:text="list.carPrice"></td>
-            <td th:text="list.carType"></td>
+        <tr th:each="list : ${list.content}">
+            <td th:text="${list.carIdx}"></td>
+            <td th:text="${list.carName}"></td>
+            <td th:text="${list.carPrice}"></td>
+            <td th:text="${list.carType}"></td>
         </tr>
     </tbody>
 </table>
 </body>
 </html>
+
+<!--
+<div class="col">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/기아 모닝 2.jpg" />
+              <div class="card-body">
+                <p class="card-text">기아 모닝</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-body-secondary">590만원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/쉐보레 스파크.jpg" />
+              <div class="card-body">
+                <p class="card-text">쉐보레 스파크</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-body-secondary">410만원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/현대 캐스퍼.jfif" />
+              <div class="card-body">
+                <p class="card-text">현대 캐스퍼</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-body-secondary">1,300만원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/쉐보레 스파크2.jpg" />
+              <div class="card-body">
+                <p class="card-text">한국GM 마티즈</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-body-secondary">390만원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/현대 캐스퍼2.jpg" />
+              <div class="card-body">
+                <p class="card-text">현대 캐스퍼</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-body-secondary">1,790만원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/페라리 SP48 유니카.avif" />
+              <div class="card-body">
+                <p class="card-text">car name</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-body-secondary">car price</small>
+                </div>
+              </div>
+            </div>
+          </div>
+-->

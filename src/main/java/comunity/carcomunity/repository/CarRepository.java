@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface CarRepository extends JpaRepository<Car, Long> {
 
-    public Page<Car> findByCar_nameLike(String name, Pageable pageable);
+    public Page<Car> findByCarNameLike(String name, Pageable pageable);
 }

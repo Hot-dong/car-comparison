@@ -1,5 +1,9 @@
 package comunity.carcomunity.controller;
 
+import comunity.carcomunity.entity.Car;
+import comunity.carcomunity.service.CarService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -7,11 +11,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
 public class ViewController {
+
+    @Autowired
+    private CarService carService;
 
     @RequestMapping("/index")
     public String index(HttpSession session, Model model) {
@@ -48,9 +56,15 @@ public class ViewController {
     }
 
     @RequestMapping("/buy")
-    public String buy(HttpSession session, Model model) {
+    public String buy(HttpSession session, Model model,
+                      @RequestParam(value = "pageNumber", defaultValue = "1") int pageNumber,
+                      @RequestParam(value= "search", defaultValue = "") String search) {
+
         String userName = (String) session.getAttribute("userName");
         model.addAttribute("userName", userName);
+
+        Page<Car> carList = carService.getSearchList(search, (pageNumber - 1));
+        model.addAttribute("list", carList);
 
         return "buy";
     }

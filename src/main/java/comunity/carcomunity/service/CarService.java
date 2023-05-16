@@ -16,7 +16,7 @@ public class CarService {
     private final CarRepository carRepository;
 
     public Page<Car> getSearchList(String search, int pageNumber) {
-        Pageable pageable = PageRequest.of(pageNumber, 10, Sort.by(Sort.Direction.ASC));
-        return carRepository.findByCar_nameLike("%" + search + "%", pageable);
+        Pageable pageable = PageRequest.of(pageNumber, 10, Sort.by(Sort.Direction.ASC, "carName"));
+        return carRepository.findByCarNameLike("%" + search + "%", pageable);
     }
 }
