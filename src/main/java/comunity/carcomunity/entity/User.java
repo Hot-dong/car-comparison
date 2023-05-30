@@ -4,6 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 
+@Getter
+@Setter
+@Builder
+@ToString
 @Entity
 @Table(name = "user")
 @NoArgsConstructor

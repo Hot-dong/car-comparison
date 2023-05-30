@@ -1,7 +1,10 @@
 package comunity.carcomunity.controller;
 
+import comunity.carcomunity.domain.Member;
 import comunity.carcomunity.entity.User;
-import comunity.carcomunity.service.UserService;
+import comunity.carcomunity.service.MemberService;
+//import comunity.carcomunity.service.UserService;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jmx.export.annotation.ManagedAttribute;
 import org.springframework.stereotype.Controller;
@@ -12,11 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private MemberService memberService;
 
     @PostMapping("/join-ok")
-    public String join(@ModelAttribute User user) {
-        userService.save(user);
+    public String join(@ModelAttribute Member member) {
+        LoggerFactory.getLogger(getClass()).info("MEMBER {}", member);
+        memberService.addMember(member);
         return "redirect:/login";
     }
 }

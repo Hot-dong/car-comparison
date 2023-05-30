@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입</title>
+</head>
+<style>
+  .input_area label {
+    display: inline-block;
+    width: 10rem;
+  }
+</style>
+<body>
+<h1>회원가입</h1>
+
+<div class="input_area">
+  <form method="post" action="join-ok">
+    <div>
+      <label>아이디(이메일)</label>
+      <input type="text" name="email" required>
+    </div>
+    <div>
+      <label>비밀번호</label>
+      <input type="text" name="password" required>
+    </div>
+    <div>
+      <label>이름</label>
+      <input type="text" name="name" required>
+    </div>
+    <div>
+      <label>전화번호</label>
+      <input type="text" name="phoneNumber" required>
+    </div>
+    <div>
+      <label>등급</label>
+      일반사용자<input type="radio" name="grade" value="1">
+      관리자<input type="radio" name="grade" value="3">
+    </div>
+    <div>
+      <input type="submit" value="회원가입">
+    </div>
+  </form>
+</div>
+</body>
+</html>
