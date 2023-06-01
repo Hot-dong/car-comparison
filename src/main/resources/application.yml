@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  servlet:
+    version: 4.0
+
+spring:
+  main:
+    allow-circular-references: 'true'
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring_project?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 7410
+
+jpa:
+  show-sql: true
+  properties:
+    hibernate:
+      default_batch_fetch_size: 1000
+  hibernate:
+    ddl-auto: create-drop
+
+handlebars:
+  suffix: .html
+  expose-session-attributes: true
