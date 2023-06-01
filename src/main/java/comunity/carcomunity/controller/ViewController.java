@@ -21,7 +21,7 @@ public class ViewController {
     @Autowired
     private CarService carService;
 
-    @RequestMapping("/index")
+    @RequestMapping(value = {"/", "/index"})
     public String index(HttpSession session, Model model) {
         String userName = (String) session.getAttribute("userName");
         model.addAttribute("userName", userName);
