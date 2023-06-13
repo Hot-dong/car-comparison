@@ -31,7 +31,9 @@
           </li>
         </ul>
         <ul class="navbar-nav">
-          <li class="nav-item text-light" th:if="${userName != null}" th:text="${userName}"></li>
+          <li class="nav-item text-light" style="margin-left: 10px;">
+            <span class="nav-link" th:if="${userName != null}" th:text="${userName}"></span>
+          </li>
           <li class="nav-item text-light">
             <a class="nav-link" th:if="${userName != null}" href="/doLogout">로그아웃</a>
           </li>

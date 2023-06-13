@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class ViewController {
@@ -63,9 +64,23 @@ public class ViewController {
         String userName = (String) session.getAttribute("userName");
         model.addAttribute("userName", userName);
 
-        Page<Car> carList = carService.getSearchList(search, (pageNumber - 1));
+        Page<Car> carList = carService.getSearchList(search, (pageNumber-1));
         model.addAttribute("list", carList);
 
         return "buy";
     }
+
+    @RequestMapping("/detail")
+    public String buy(HttpSession session, Model model,
+                      @RequestParam(value= "search") String search) {
+
+        String userName = (String) session.getAttribute("userName");
+        model.addAttribute("userName", userName);
+
+        Car carList = carService.getCarList(search);
+        model.addAttribute("list", carList);
+
+        return "detail";
+    }
+
 }

@@ -9,14 +9,21 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CarService {
 
     private final CarRepository carRepository;
 
+    public Car getCarList(String name) {
+        return carRepository.findByCarName(name);
+    }
+
     public Page<Car> getSearchList(String search, int pageNumber) {
         Pageable pageable = PageRequest.of(pageNumber, 10, Sort.by(Sort.Direction.ASC, "carName"));
         return carRepository.findByCarNameLike("%" + search + "%", pageable);
     }
+
 }

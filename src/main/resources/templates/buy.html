@@ -128,13 +128,13 @@
         <div class="container">
           <div th:if="${list.content} != null" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div th:each="list: ${list.content}">
-              <div class="col">
+              <div class="col" th:onclick="|location.href='@{detail(search=${list.carName})}'|">
                 <div class="card shadow-sm">
                   <img class="bd-placeholder-img card-img-top" width="100%" height="225" th:src="@{images/} + ${list.carName} + @{.jpg}" />
                   <div class="card-body">
-                    <p class="card-text" th:text="${list.carName}"></p>
+                    <p class="card-text link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" th:text="${list.carName}"></p>
                     <div class="d-flex justify-content-between align-items-center">
-                      <small class="text-body-secondary" th:text="${list.carPrice}"></small>
+                      <small class="text-body-secondary link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" th:text="${list.carPrice}"></small>
                     </div>
                   </div>
                 </div>
